@@ -125,9 +125,13 @@ License: MIT
   .analyst-role{color:var(--text2); font-size:12.5px; margin-top:2px;}
 
   /* ---------- exec summary ---------- */
-  .exec-text{font-size:14px; line-height:1.75; color:var(--text); max-width:760px;}
-  .exec-text p{text-align:justify; text-align-last:left;}
+  /* dua kolom di layar lebar: tepi kanan jadi rata dengan kartu di bawahnya,
+     sekaligus panjang baris tetap nyaman dibaca (~70 karakter per kolom).
+     Di bawah 940px otomatis balik jadi satu kolom, lihat media query. */
+  .exec-text{font-size:14px; line-height:1.75; color:var(--text); column-count:2; column-gap:40px;}
+  .exec-text p{text-align:justify; text-align-last:left; orphans:2; widows:2;}
   .exec-text p + p{margin-top:12px;}
+  @media (max-width:940px){.exec-text{column-count:1;}}
   .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:20px;}
   @media (max-width:860px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
   .stat-card{
@@ -326,7 +330,7 @@ License: MIT
         </p>
         <p>
           Analisis ini membandingkan tiga angka untuk setiap dari 52 jenis ruang di tujuh kategori: luas yang
-          diajukan pada proposal awal, luas rekomendasi setelah dihitung ulang berdasarkan berdasarkan Standar Dokumen Master Plan Kampus Terpadu UII 2024-2034, SN-Dikti dan
+          diajukan pada proposal awal, luas rekomendasi setelah dihitung ulang berdasarkan Standar Dokumen Master Plan Kampus Terpadu UII 2024-2034, SN-Dikti dan
           pedoman internasional (rincian sumbernya ada di halaman Referensi Standar), dan luas yang benar-benar
           tersedia di lapangan sekarang. Dari situ terlihat kekurangan riil FISB terhadap rekomendasi mencapai
           lebih dari 5.000 m², dengan kategori Ruang Kegiatan Mahasiswa dan Fasilitas Umum sebagai dua area
