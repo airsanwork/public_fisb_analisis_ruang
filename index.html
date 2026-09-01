@@ -223,8 +223,10 @@ License: MIT
   ::-webkit-scrollbar{height:8px; width:8px;}
   ::-webkit-scrollbar-thumb{background:var(--border); border-radius:4px;}
 
-  /* ---------- mobile (Samsung A33 dst, ~360-420px) ---------- */
-  @media (max-width:760px){
+  /* ---------- mobile (Samsung A33 dst, ~360-420px potrait / ~740-915px landscape) ----------
+     dipicu lebar ATAU (tinggi pendek + landscape), karena HP diputar landscape
+     lebarnya sering melewati 760px sehingga breakpoint lebar saja tidak kepicu. */
+  @media (max-width:760px), (max-height:500px) and (orientation:landscape){
     body{flex-direction:column;}
     .sidebar{
       width:100%; height:auto; position:sticky; top:0; z-index:20;
